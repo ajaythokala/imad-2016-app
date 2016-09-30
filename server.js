@@ -19,20 +19,22 @@ var articles = {
                     <p>
                         This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
                     </p>`
-     },
-    `article-two`: {title:'Article Two  | Ajay Ramamurthy' ,
+                    },
+    `article-two`: {
+        title:'Article Two  | Ajay Ramamurthy' ,
         heading:'Article Two',
         date:'sept 30,2016',
         content:` <p>
                         This is the content for my second article. 
-                    </p>`
+                  </p>`
         },
-    `article-three`:{title:'Article Three  | Ajay Ramamurthy' ,
+    `article-three`:{
+        title:'Article Three  | Ajay Ramamurthy' ,
         heading:'Article Three',
         date:'sept 15,2016',
         content:` <p>
                         This is the content for my third article. 
-                    </p>`
+                  </p>`
         }
 };    
 function createTemplate(data){
@@ -78,7 +80,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/articleName', function (req,res){
+app.get('/:articleName', function (req,res){
    var articleName =req.params.articleName;
    res.send(createTemplate(articles[articleName]));
 });
